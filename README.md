@@ -1,2 +1,2 @@
 # FOO_Training
-Exercise 3 (Added Validation)
+Exercise 4 (Using Redis Caching)
