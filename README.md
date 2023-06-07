@@ -1,2 +1,2 @@
 # FOO_Training
-Exercise 2
+Exercise 3 (Added Validation)

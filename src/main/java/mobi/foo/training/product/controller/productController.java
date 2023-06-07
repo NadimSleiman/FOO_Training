@@ -1,5 +1,6 @@
 package mobi.foo.training.product.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import mobi.foo.training.FooResponse;
 import mobi.foo.training.product.dto.ProductDto;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+
 public class ProductController {
 
     private final ProductService myproductService;
@@ -34,9 +36,8 @@ public class ProductController {
     }
 
     @PostMapping("product/Create")
-    public ResponseEntity<FooResponse> AddProduct(@RequestBody Product product)
+    public ResponseEntity<FooResponse> AddProduct(@RequestBody @Valid Product product)
     {
-
         myproductService.saveProduct(product);
         FooResponse response = FooResponse.builder().data(product).message("Created Successfully").status(true).build();
         return new ResponseEntity<>(response,HttpStatus.OK);
