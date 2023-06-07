@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import mobi.foo.training.product.dto.ProductDto;
 import mobi.foo.training.product.entity.Product;
 import mobi.foo.training.product.repository.ProductRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,34 +18,39 @@ import java.util.Optional;
 public class ProductService {
     private final ProductRepository productRepo;
 
+
+    @Cacheable("CachedProducts")
     public List<ProductDto> getAllProducts()
     {
         List<ProductDto> myproducts = new ArrayList<>();
         List<Product> products = productRepo.findAll();
-        for (Product p  : products)
-        {
-            ProductDto pDto = new ProductDto(p.getId(),p.getProductName());
+        for (Product p  : products) {
+            ProductDto pDto = new ProductDto(p.getId(), p.getProductName());
             myproducts.add(pDto);
 
         }
+        System.out.println("Getting Data from Database");
         return myproducts;
 
     }
 
 
-
+    @Cacheable("CachedProducts")
     public ProductDto getProduct(Long id)
     {
         Optional<Product> p =  productRepo.findById(id);
         ProductDto product = new ProductDto(p.get().getId(),p.get().getProductName());
+        System.out.println("Getting product of id:" + id + "from Database");
         return  product;
     }
 
+    @CacheEvict(value = "CachedProducts" , allEntries = true)
     public void saveProduct(Product P)
     {
         productRepo.save(P);
     }
 
+    @CacheEvict(value = "CachedProducts" , allEntries = true)
     public void deleteProduct(Long id)
     {
 

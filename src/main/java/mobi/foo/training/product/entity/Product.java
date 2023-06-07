@@ -9,12 +9,11 @@ import lombok.Data;
 
 
 
-
-
 @Table(name = "product")
 @Entity
 @Data
-public class Product {
+
+public class Product{
 
 
     @Id
