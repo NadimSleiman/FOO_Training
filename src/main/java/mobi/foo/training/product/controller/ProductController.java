@@ -28,9 +28,17 @@ public class ProductController {
 
     @GetMapping("products")
     @Operation(summary = "Get all Products")
-    public ResponseEntity<FooResponse> getAllProducts(){
+    public ResponseEntity<FooResponse> getAllProducts(@RequestHeader("ApiVersion") String apiVersion){
         List<ProductDto> products;
-        products = myproductService.getAllProducts();
+        if(apiVersion.equals("V1"))
+        {
+            products = myproductService.getAllProducts();
+        }
+        else
+        {
+            products = myproductService.getAllProductsV2();
+        }
+
         FooResponse response = FooResponse.builder().data(products).message("Products Showing Successfully").status(true).build();
         return new ResponseEntity<FooResponse>(response, HttpStatus.OK);
     }

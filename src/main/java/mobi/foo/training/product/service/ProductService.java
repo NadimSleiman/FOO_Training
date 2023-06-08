@@ -36,7 +36,22 @@ public class ProductService {
             myproducts.add(pDto);
 
         }
-        System.out.println("Getting Data from Database");
+        System.out.println("Getting Data from Database Version 1");
+        return myproducts;
+
+    }
+
+    @Cacheable("CachedProducts")
+    public List<ProductDto> getAllProductsV2()
+    {
+        List<ProductDto> myproducts = new ArrayList<>();
+        List<Product> products = productRepo.findAll();
+        for (Product p  : products) {
+            ProductDto pDto = new ProductDto(p.getId(), p.getProductName());
+            myproducts.add(pDto);
+
+        }
+        System.out.println("Getting Data from Database Version 2");
         return myproducts;
 
     }

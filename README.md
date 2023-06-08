@@ -1,2 +1,2 @@
 # FOO_Training
-Exercise 6 (Api Documentation)
+Exercise 7 (Api Versioning)
