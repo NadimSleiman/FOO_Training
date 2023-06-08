@@ -2,19 +2,26 @@ package mobi.foo.training.product.service;
 
 
 import lombok.RequiredArgsConstructor;
+import mobi.foo.training.FooResponse;
 import mobi.foo.training.product.dto.ProductDto;
 import mobi.foo.training.product.entity.Product;
 import mobi.foo.training.product.repository.ProductRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor
 @Service
+@EnableAsync
 public class ProductService {
     private final ProductRepository productRepo;
 
@@ -32,6 +39,17 @@ public class ProductService {
         System.out.println("Getting Data from Database");
         return myproducts;
 
+    }
+
+    @Async
+    public CompletableFuture<String> performAsyncTask()
+    {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return CompletableFuture.completedFuture("Performing Async Task");
     }
 
 

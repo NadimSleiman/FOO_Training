@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,6 +36,23 @@ public class ProductController {
         ProductDto product = myproductService.getProduct(id);
         FooResponse response = FooResponse.builder().data(product).message("Showing a Product").status(true).build();
         return  new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
+    @GetMapping("test-async")
+    public ResponseEntity<FooResponse> testingAsync()
+    {
+        CompletableFuture<String> msg = myproductService.performAsyncTask();
+        System.out.println("Hello");
+        String s;
+        try {
+            s = msg.get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        FooResponse response = FooResponse.builder().status(true).message(""+s).build();
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
     @PostMapping("product/Create")
