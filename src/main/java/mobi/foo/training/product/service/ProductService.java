@@ -67,8 +67,6 @@ public class ProductService {
         return CompletableFuture.completedFuture("Performing Async Task");
     }
 
-
-    @Cacheable("CachedProducts")
     public ProductDto getProduct(Long id)
     {
         Optional<Product> p =  productRepo.findById(id);
