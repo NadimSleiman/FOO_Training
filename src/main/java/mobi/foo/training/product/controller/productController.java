@@ -1,5 +1,10 @@
 package mobi.foo.training.product.controller;
 
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import mobi.foo.training.FooResponse;
@@ -16,12 +21,13 @@ import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequiredArgsConstructor
-
+@Tag(name = "Product Controller", description = "API endpoints for products")
 public class ProductController {
 
     private final ProductService myproductService;
 
     @GetMapping("products")
+    @Operation(summary = "Get all Products")
     public ResponseEntity<FooResponse> getAllProducts(){
         List<ProductDto> products;
         products = myproductService.getAllProducts();
@@ -31,6 +37,7 @@ public class ProductController {
 
 
     @GetMapping("products/{id}")
+    @Operation(summary ="Get Product by Id")
     public ResponseEntity<FooResponse> getProductID(@PathVariable long id)
     {
         ProductDto product = myproductService.getProduct(id);
@@ -56,6 +63,12 @@ public class ProductController {
     }
 
     @PostMapping("product/Create")
+    @Operation(summary ="Creating a Product")
+    @ApiResponses(value ={
+            @ApiResponse(responseCode = "200", description = "Product Created Successfully"),
+            @ApiResponse(responseCode = "404", description = "Product Invalid")
+
+    })
     public ResponseEntity<FooResponse> AddProduct(@RequestBody @Valid Product product)
     {
         myproductService.saveProduct(product);
@@ -64,6 +77,12 @@ public class ProductController {
     }
 
     @DeleteMapping("product/Delete/{id}")
+    @Operation(summary ="Deleting Product By Id")
+    @ApiResponses(value ={
+            @ApiResponse(responseCode = "200", description = "Product Deleted Successfully"),
+            @ApiResponse(responseCode = "404", description = "Product Not Found")
+
+    })
     public ResponseEntity<FooResponse> deleteProduct(@PathVariable long id)
     {
         ProductDto product = myproductService.getProduct(id);
@@ -71,8 +90,5 @@ public class ProductController {
         FooResponse response = FooResponse.builder().data(product).message("Product id: " + id + " deleted Successfully").status(true).build();
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
-
-
-
 
 }
