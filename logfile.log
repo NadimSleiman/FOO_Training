@@ -1,0 +1,81 @@
+2023-06-09 11:19:07.272 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2023-06-09 11:19:07.346 [main] INFO  m.foo.training.TrainingApplication - Starting TrainingApplication using Java 17.0.3 with PID 34248 (C:\Users\HP\Documents\GitHub\FOO_Training\build\classes\java\main started by HP in C:\Users\HP\Documents\GitHub\FOO_Training)
+2023-06-09 11:19:07.348 [main] INFO  m.foo.training.TrainingApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-09 11:19:08.269 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-09 11:19:08.270 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-09 11:19:08.430 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 146 ms. Found 1 JPA repository interfaces.
+2023-06-09 11:19:08.446 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-09 11:19:08.447 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-06-09 11:19:08.461 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface mobi.foo.training.product.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-06-09 11:19:08.462 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-06-09 11:19:09.142 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-06-09 11:19:09.151 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-06-09 11:19:09.151 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-06-09 11:19:09.152 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-09 11:19:09.257 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-06-09 11:19:09.258 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1842 ms
+2023-06-09 11:19:09.625 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-06-09 11:19:09.805 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:7890d052-4257-4e9e-be50-8329b8058735 user=SA
+2023-06-09 11:19:09.808 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-06-09 11:19:09.872 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-09 11:19:09.957 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-06-09 11:19:09.959 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-06-09 11:19:10.170 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-06-09 11:19:10.445 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-06-09 11:19:10.521 [main] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 1.4.200
+2023-06-09 11:19:10.794 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-06-09 11:19:11.921 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-09 11:19:11.997 [main] INFO  o.h.t.s.i.e.GenerationTargetToDatabase - HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-06-09 11:19:12.002 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-09 11:19:13.197 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-09 11:19:15.483 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-06-09 11:19:15.547 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-09 11:19:15.575 [main] INFO  m.foo.training.TrainingApplication - Started TrainingApplication in 8.612 seconds (process running for 9.123)
+2023-06-09 11:19:22.182 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-09 11:19:22.183 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-06-09 11:19:22.184 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2023-06-09 11:19:22.639 [http-nio-8080-exec-2] INFO  m.f.t.p.controller.ProductController - Getting Products
+2023-06-09 11:20:05.885 [http-nio-8080-exec-3] INFO  m.f.t.p.controller.ProductController - You Created a Product
+2023-06-09 11:44:45.734 [http-nio-8080-exec-6] WARN  m.f.t.p.controller.ProductController - Warning, you Deleted Product of id:1
+2023-06-09 12:14:45.385 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2023-06-09 12:14:45.522 [main] INFO  m.foo.training.TrainingApplication - Starting TrainingApplication using Java 17.0.3 with PID 26096 (C:\Users\HP\Documents\GitHub\FOO_Training\build\classes\java\main started by HP in C:\Users\HP\Documents\GitHub\FOO_Training)
+2023-06-09 12:14:45.525 [main] INFO  m.foo.training.TrainingApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-09 12:14:47.033 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-09 12:14:47.035 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-09 12:14:47.209 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 160 ms. Found 1 JPA repository interfaces.
+2023-06-09 12:14:47.237 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-09 12:14:47.239 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-06-09 12:14:47.272 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface mobi.foo.training.product.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-06-09 12:14:47.273 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2023-06-09 12:14:48.708 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-06-09 12:14:48.744 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-06-09 12:14:48.747 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-06-09 12:14:48.747 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-09 12:14:49.057 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-06-09 12:14:49.061 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3403 ms
+2023-06-09 12:14:50.000 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-06-09 12:14:50.159 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:cbb5c61a-1cb9-49fd-98d8-b8fe38f9d6b1 user=SA
+2023-06-09 12:14:50.161 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-06-09 12:14:50.203 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-09 12:14:50.270 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-06-09 12:14:50.274 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-06-09 12:14:50.668 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-06-09 12:14:51.021 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-06-09 12:14:51.093 [main] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 1.4.200
+2023-06-09 12:14:51.366 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-06-09 12:14:52.461 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-09 12:14:52.504 [main] INFO  o.h.t.s.i.e.GenerationTargetToDatabase - HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-06-09 12:14:52.508 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-09 12:14:53.303 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-09 12:14:55.968 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-06-09 12:14:56.017 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-09 12:14:56.038 [main] INFO  m.foo.training.TrainingApplication - Started TrainingApplication in 11.163 seconds (process running for 11.899)
+2023-06-09 12:16:26.012 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-09 12:16:26.012 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-06-09 12:16:26.015 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-06-09 12:16:27.020 [http-nio-8080-exec-2] INFO  m.f.t.p.controller.ProductController - Getting Products
+2023-06-09 12:16:55.864 [http-nio-8080-exec-3] INFO  m.f.t.p.controller.ProductController - You Created a Product
+2023-06-09 12:16:59.817 [http-nio-8080-exec-4] INFO  m.f.t.p.controller.ProductController - You Created a Product
+2023-06-09 12:17:21.449 [http-nio-8080-exec-5] WARN  m.f.t.p.controller.ProductController - Warning, you Deleted Product of id:1
+2023-06-09 12:17:37.694 [http-nio-8080-exec-6] ERROR m.f.t.p.controller.ProductController - Invalid API version provided
+2023-06-09 12:17:49.684 [http-nio-8080-exec-7] INFO  m.f.t.p.controller.ProductController - Getting Products
