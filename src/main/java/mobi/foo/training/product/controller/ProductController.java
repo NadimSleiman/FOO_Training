@@ -33,7 +33,7 @@ public class ProductController {
     @GetMapping("products")
     @Operation(summary = "Get all Products")
     public ResponseEntity<FooResponse> getAllProducts(@RequestHeader("ApiVersion") String apiVersion){
-        if (apiVersion == null || apiVersion.isEmpty()) {
+        if (apiVersion.isEmpty()) {
             logger.error("Invalid API version provided");
             FooResponse response = FooResponse.builder().message("Invalid API Version").status(false).build();
             return new ResponseEntity<FooResponse>(response, HttpStatus.OK);

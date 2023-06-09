@@ -1,20 +1,22 @@
 <configuration>
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%-5level - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
     <appender name="File" class="ch.qos.logback.core.FileAppender">
         <file>/Users/HP/Documents/GitHub/FOO_Training/logfile.log</file>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%-5level - %msg%n</pattern>
         </encoder>
     </appender>
 
+    <logger name="mobi.foo.training.product.controller.ProductController" level="INFO">
+        <appender-ref ref="File"/>
+    </logger>
+
     <root level="INFO">
         <appender-ref ref="Console"/>
-        <appender-ref ref="File"/>
-
     </root>
 </configuration>
