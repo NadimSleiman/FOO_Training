@@ -1,2 +1,2 @@
 # FOO_Training
-Exercise 7 (Api Versioning)
+Exercise 8 (Logging in Spring Boot)
