@@ -27,6 +27,7 @@ public class ProductService {
     @Cacheable("CachedProducts")
     public List<ProductDto> getAllProducts()
     {
+
         List<ProductDto> myproducts = new ArrayList<>();
         List<Product> products = productRepo.findAll();
         for (Product p  : products) {

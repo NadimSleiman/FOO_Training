@@ -25,4 +25,6 @@ public class Product{
     private String productName;
 
 
+    public Product(long l, String s) {
+    }
 }
