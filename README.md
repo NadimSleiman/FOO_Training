@@ -1,2 +1,2 @@
 # FOO_Training
-Exercise 8 (Logging in Spring Boot)
+Exercise 9 (working with Rest Template)

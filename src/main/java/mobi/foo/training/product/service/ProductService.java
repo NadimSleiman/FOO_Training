@@ -2,14 +2,12 @@ package mobi.foo.training.product.service;
 
 
 import lombok.RequiredArgsConstructor;
-import mobi.foo.training.FooResponse;
+
 import mobi.foo.training.product.dto.ProductDto;
 import mobi.foo.training.product.entity.Product;
 import mobi.foo.training.product.repository.ProductRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
@@ -87,7 +85,5 @@ public class ProductService {
 
         productRepo.deleteById(id);
     }
-
-
 
 }

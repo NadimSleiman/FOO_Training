@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import mobi.foo.training.FooResponse;
+import mobi.foo.training.product.apiClient.ProductApiService;
 import mobi.foo.training.product.dto.ProductDto;
 import mobi.foo.training.product.entity.Product;
 import mobi.foo.training.product.service.ProductService;
@@ -18,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -30,7 +32,9 @@ public class ProductController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final ProductService myproductService;
 
-    @GetMapping("products")
+    private final ProductApiService clientProductService;
+
+    @GetMapping("/products")
     @Operation(summary = "Get all Products")
     public ResponseEntity<FooResponse> getAllProducts(@RequestHeader("ApiVersion") String apiVersion){
         if (apiVersion.isEmpty()) {
@@ -51,6 +55,7 @@ public class ProductController {
         logger.info("Getting Products");
 
         FooResponse response = FooResponse.builder().data(products).message("Products Showing Successfully").status(true).build();
+        System.out.println(response.getData());
         return new ResponseEntity<FooResponse>(response, HttpStatus.OK);
     }
 
@@ -83,7 +88,7 @@ public class ProductController {
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
-    @PostMapping("product/Create")
+    @PostMapping("products/Create")
     @Operation(summary ="Creating a Product")
     @ApiResponses(value ={
             @ApiResponse(responseCode = "200", description = "Product Created Successfully"),
@@ -94,11 +99,11 @@ public class ProductController {
     {
         logger.info("You Created a Product");
         myproductService.saveProduct(product);
-        FooResponse response = FooResponse.builder().data(product).message("Created Successfully").status(true).build();
+        FooResponse response = FooResponse.builder().data(product).message("Product Created Successfully").status(true).build();
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
-    @DeleteMapping("product/Delete/{id}")
+    @DeleteMapping("products/Delete/{id}")
     @Operation(summary ="Deleting Product By Id")
     @ApiResponses(value ={
             @ApiResponse(responseCode = "200", description = "Product Deleted Successfully"),
@@ -112,6 +117,35 @@ public class ProductController {
         myproductService.deleteProduct(id);
         FooResponse response = FooResponse.builder().data(product).message("Product id: " + id + " deleted Successfully").status(true).build();
         return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
+    @GetMapping("/products-client")
+    public ResponseEntity<FooResponse> getProducts(@RequestHeader("ApiVersion") String apiVersion)
+    {
+        if (apiVersion.isEmpty()) {
+            FooResponse response = FooResponse.builder().message("Invalid API Version").status(false).build();
+            return new ResponseEntity<FooResponse>(response, HttpStatus.OK);
+        }
+        System.out.println("api client");
+        return clientProductService.getAllProducts(apiVersion);
+    }
+
+    @GetMapping("products-client/{id}")
+    public ResponseEntity<FooResponse> getProductByID(@PathVariable long id)
+    {
+        return clientProductService.getProductById(id);
+    }
+
+    @PostMapping("products-client/Create")
+    public ResponseEntity<FooResponse> AddProductClient(@RequestBody @Valid Product product)
+    {
+        return clientProductService.createProduct(product);
+    }
+
+    @DeleteMapping("products-client/Delete/{id}")
+    public ResponseEntity<FooResponse> deleteProductClient(@PathVariable long id)
+    {
+        return clientProductService.deleteProduct(id);
     }
 
 }
